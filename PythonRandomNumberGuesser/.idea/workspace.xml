@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f668513e-c9f3-496d-89ba-bc8a49a9e57d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ReversedNumberGuesser/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ReversedNumberGuesser/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ReversedNumberGuesser/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ReversedNumberGuesser/venv/ReversedGuesser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PythonRandomNumberGuesser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonRandomNumberGuesser.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReversedNumberGuesser/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ReversedNumberGuesser/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ReversedNumberGuesser/venv/ReversedGuesser.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ReversedNumberGuesser/venv/ReversedGuesser.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,6 +130,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="68" y="20" width="1400" height="784" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24944974" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

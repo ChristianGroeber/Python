@@ -1,6 +1,8 @@
 global numHeighest
 global numLowest
 global lastGuessed
+global tryAgain
+tryAgain = True
 trys = 0
 
 def settings():
@@ -27,12 +29,18 @@ def guess(bigger):
     global numHeighest
     global numLowest
     global lastGuessed
+    global tryAgain
     trys+=1
+
     calcWith = 0
     if bool(bigger):
-        calcWith = 10 - (int(numHeighest) - int(lastGuessed)) / 2
+        if int(numLowest) < int(lastGuessed):
+            numLowest = lastGuessed
+        calcWith = int(numHeighest) - (int(numHeighest) - int(lastGuessed)) / 2
     else:
-        calcWith = 10 - (int(lastGuessed) - int(numLowest))/ 2
+        if int(numHeighest) > int(lastGuessed):
+            numHeighest = lastGuessed
+        calcWith = int(lastGuessed) - (int(lastGuessed) - int(numLowest))/ 2
     lastGuessed = int(calcWith)
 
     result = input("Is your Number = " + str(int(calcWith)) + "?\n"
@@ -40,10 +48,16 @@ def guess(bigger):
     if int(result) == 2:
         guess(True)
     elif int(result) == 0:
-        print("Booyah, it took me " + trys + " trys!")
+        print("Booyah, it took me " + str(trys) + " trys!")
+        again = input("Play again? 1 = yes, 2 = no")
+        if int(again) == 1:
+            tryAgain = True
+        else:
+            tryAgain = False
     else:
         guess(False)
 
-settings()
-askNumber()
-guess(True)
+while bool(tryAgain):
+    settings()
+    askNumber()
+    guess(True)
