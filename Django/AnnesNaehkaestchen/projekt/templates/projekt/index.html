@@ -1,0 +1,15 @@
+{% extends 'projekt/base.html' %}
+
+{% block content %}
+    {% if neuestes_projekt %}
+    <ul>
+        {% for projekt in neuestes_projekt %}
+            <li><a href="/projekte/{{projekt.id}}/">
+                {{ projekt.titel }}
+            </a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>Keine Projekte vorhanden</p>
+    {% endif %}
+{% endblock %}
