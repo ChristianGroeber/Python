@@ -1,14 +1,27 @@
-{% extends 'projekt/base.html' %}
 
+{% extends 'projekt/base.html' %}
 {% block content %}
     {% if neuestes_projekt %}
-    <ul>
         {% for projekt in neuestes_projekt %}
-            <li><a href="/projekte/{{projekt.id}}/">
-                {{ projekt.titel }}
-            </a></li>
+            <div class="post row">
+                <div class="col-sm">
+                    <div class="main">
+                        <a class="title" href="/projekte/{{projekt.id}}/">
+                        {{ projekt.titel }}
+                        </a>
+                        <div class="beschreibung">
+                            {{ projekt.beschreibung }}
+                        </div>
+                    </div>
+                    <div class="date">
+                        {{ projekt.veroeffentlicht }}
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <img src="{{ projekt.bild }}">
+                </div>
+            </div>
         {% endfor %}
-    </ul>
     {% else %}
         <p>Keine Projekte vorhanden</p>
     {% endif %}
