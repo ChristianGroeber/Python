@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'projekt',
+    'froala_editor',
     'settings',
     'django.contrib.admin',
     'django.contrib.auth',
