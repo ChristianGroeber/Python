@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Projekt(models.Model):
     titel = models.CharField(max_length=50)
-    beschreibung = models.CharField(max_length=500)
+    beschreibung = models.TextField()
     bild = models.ImageField()
     veroeffentlicht = models.DateTimeField('Datum Veröffentlicht')
 
