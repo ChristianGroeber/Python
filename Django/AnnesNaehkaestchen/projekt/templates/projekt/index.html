@@ -3,24 +3,11 @@
 {% block content %}
     {% if neuestes_projekt %}
         {% for projekt in neuestes_projekt %}
-            <div class="post row">
-                <div class="col-sm">
-                    <div class="main">
-                        <a class="title" href="/projekte/{{projekt.id}}/">
-                        {{ projekt.titel }}
-                        </a>
-                        <div class="beschreibung">
-                            {{ projekt.beschreibung }}
-                        </div>
-                    </div>
-                    <div class="date">
-                        {{ projekt.veroeffentlicht }}
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <img src="{{ projekt.bild }}">
-                </div>
-            </div>
+            <div class="blog-post">
+                <h2 class="blog-post-title"><a href="{% url 'detail' projekt.id %}">{{ projekt.titel }}</a></h2>
+                <p class="blog-post-meta">{{ projekt.veroeffentlicht }}</p>
+                <p>{{ projekt.beschreibung }}</p>
+            </div><!-- /.blog-post -->
         {% endfor %}
     {% else %}
         <p>Keine Projekte vorhanden</p>

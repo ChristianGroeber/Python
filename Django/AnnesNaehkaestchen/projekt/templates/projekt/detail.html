@@ -1,6 +1,7 @@
 {% extends 'projekt/base.html' %}
 {% block content %}
     <h1>{{ projekt.titel }}</h1>
+    <p class="date">{{ projekt.veroeffentlicht }}</p>
     <p>
         <img src={{ projekt.bild }}>
         {{ projekt.beschreibung }}
