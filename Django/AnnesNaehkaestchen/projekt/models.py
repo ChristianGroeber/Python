@@ -17,3 +17,8 @@ class Projekt(models.Model):
     def __str__(self):
         return self.titel
 
+
+class Kommentar(models.Model):
+    titel = models.CharField(max_length=50)
+    text = models.CharField(max_length=200)
+
