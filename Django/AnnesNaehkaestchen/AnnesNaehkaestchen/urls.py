@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 
-from AnnesNaehkaestchen import settings
+from django.conf import settings
 
 urlpatterns = [
     path('', include('projekt.urls')),
