@@ -4,6 +4,7 @@ from django.template import loader
 from .models import Projekt
 from .forms import Kommentar
 
+
 def index(request):
     neuestes_projekt = Projekt.objects.order_by('-veroeffentlicht')[:5]
     template = loader.get_template('projekt/index.html')
