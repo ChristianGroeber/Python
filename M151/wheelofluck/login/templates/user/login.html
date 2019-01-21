@@ -1,0 +1,8 @@
+{% extends 'user/base.html' %}
+{% block content %}
+    <form action="your_login" method="post">
+        {% csrf_token %}
+        {{form.as_p }}
+        <input type="submit" value="Commit">
+    </form>
+{% endblock %}

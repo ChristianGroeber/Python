@@ -1,0 +1,9 @@
+{% extends 'user/base.html' %}
+{% block content %}
+    {% for user in newest_user %}
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{ user.username }}</h2>
+                <p class="blog-post-meta">{{ user.loggedInAt }}</p>
+            </div><!-- /.blog-post -->
+        {% endfor %}
+{% endblock %}
