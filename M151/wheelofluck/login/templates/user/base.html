@@ -3,7 +3,7 @@
   <head>
       <title>Glücksrad</title>
        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/style.css' %}">-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Custom styles for this template -->
@@ -15,9 +15,6 @@
     <div class="container">
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
-          <div class="col-4 pt-1">
-            <a class="text-muted" href="#">Subscribe</a>
-          </div>
           <div class="col-4 text-center">
             <a class="blog-header-logo text-dark" href="#">Glücksrad Login</a>
           </div>
@@ -26,34 +23,31 @@
 
       <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-          <a class="p-2 text-muted" href="#">World</a>
         </nav>
       </div>
 
     <main role="main" class="container">
+      <a href="{% url 'new_user' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
       <div class="row">
         <div class="col-md-8 blog-main">
             {% block content %}
             {% endblock %}
         </div><!-- /.blog-main -->
+        <div class="highscores aside">
+          <p>High Scores</p>
+          <script>alert(high_scores.game)</script>
+          {% for game in high_score_list %}
+            {{ game.player }}
+          {% endfor %}
+        </div>
 
-          <div class="p-3">
-            <h4 class="font-italic">Elsewhere</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">Facebook</a></li>
-            </ol>
-          </div>
-        </aside><!-- /.blog-sidebar -->
 
       </div><!-- /.row -->
 
     </main><!-- /.container -->
 
     <footer class="blog-footer">
-      <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
+      <!--TODO-->
     </footer>
     </div>
 

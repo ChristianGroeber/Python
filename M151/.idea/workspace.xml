@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8210070f-9b6c-4574-a02f-7bc5db598834" name="Default Changelist" comment="" />
+    <list default="true" id="8210070f-9b6c-4574-a02f-7bc5db598834" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Django/TinderCheck/Checker/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Django/TinderCheck/Checker/templates/Checker/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Django/TinderCheck/Checker/templates/Checker/match.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Django/TinderCheck/Checker/templates/Checker/result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Django/TinderCheck/Checker/templates/Checker/unmatch.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Django/TinderCheck/Checker/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wheelofluck/login/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wheelofluck/login/templates/user/game.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wheelofluck/login/templates/user/new_game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Django/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Django/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Django/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Django/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Django/AnnesNaehkaestchen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Django/AnnesNaehkaestchen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Django/AnnesNaehkaestchen/projekt/templates/projekt/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Django/AnnesNaehkaestchen/projekt/templates/projekt/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/login/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/login/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/login/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/login/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/login/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/login/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/login/templates/user/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/login/templates/user/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/login/templates/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/login/templates/user/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/login/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/login/templates/user/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/login/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/login/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/login/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/login/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/wheelofluck/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/wheelofluck/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wheelofluck/wheelofluck/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/wheelofluck/wheelofluck/urls.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,35 +36,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wheelofluck/login/apps.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wheelofluck/wheelofluck/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+            <state relative-caret-position="188">
+              <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wheelofluck/login/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+            <state relative-caret-position="340">
+              <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wheelofluck/login/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,28 +71,7 @@
         <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wheelofluck/login/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-              <folding>
-                <element signature="e#1#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/users.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -82,19 +86,52 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wheelofluck/login/models.py">
+        <entry file="file://$PROJECT_DIR$/wheelofluck/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="85">
+              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wheelofluck/login/urls.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wheelofluck/login/context_processors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/users.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+              <caret line="5" column="64" lean-forward="true" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wheelofluck/login/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wheelofluck/login/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -107,8 +144,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -127,24 +164,28 @@
         <option value="$PROJECT_DIR$/gluecksrad/login/views.py" />
         <option value="$PROJECT_DIR$/gluecksrad/gluecksrad/settings.py" />
         <option value="$PROJECT_DIR$/gluecksrad/login/models.py" />
-        <option value="$PROJECT_DIR$/wheelofluck/login/admin.py" />
-        <option value="$PROJECT_DIR$/wheelofluck/login/templates/user/login.html" />
-        <option value="$PROJECT_DIR$/wheelofluck/login/templates/user/base.html" />
-        <option value="$PROJECT_DIR$/wheelofluck/wheelofluck/urls.py" />
-        <option value="$PROJECT_DIR$/wheelofluck/login/models.py" />
-        <option value="$PROJECT_DIR$/wheelofluck/login/templates/user/index.html" />
         <option value="$PROJECT_DIR$/wheelofluck/login/templates/user/users.html" />
-        <option value="$PROJECT_DIR$/wheelofluck/login/views.py" />
         <option value="$PROJECT_DIR$/wheelofluck/login/forms.py" />
-        <option value="$PROJECT_DIR$/wheelofluck/wheelofluck/settings.py" />
+        <option value="$PROJECT_DIR$/wheelofluck/login/templates/user/login.html" />
         <option value="$PROJECT_DIR$/wheelofluck/login/urls.py" />
+        <option value="$PROJECT_DIR$/wheelofluck/login/templates/user/index.html" />
+        <option value="$PROJECT_DIR$/wheelofluck/wheelofluck/urls.py" />
+        <option value="$PROJECT_DIR$/wheelofluck/login/templates/user/new_game.html" />
+        <option value="$PROJECT_DIR$/wheelofluck/login/templates/user/game.html" />
+        <option value="$PROJECT_DIR$/wheelofluck/login/admin.py" />
+        <option value="$PROJECT_DIR$/wheelofluck/login/models.py" />
+        <option value="$PROJECT_DIR$/wheelofluck/login/views.py" />
+        <option value="$PROJECT_DIR$/wheelofluck/login/context_processor.py" />
+        <option value="$PROJECT_DIR$/wheelofluck/wheelofluck/settings.py" />
+        <option value="$PROJECT_DIR$/wheelofluck/login/templates/user/base.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="235" />
+    <option name="y" value="100" />
+    <option name="width" value="1400" />
+    <option name="height" value="785" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -200,7 +241,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Django/DjangoTutorial" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Django" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -268,24 +309,32 @@
     <option name="localTasksCounter" value="6" />
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.24983476" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.24983476" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -300,26 +349,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="showing users works" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gluecksrad/login/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/login/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/login/templates/user/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gluecksrad/login/tests.py" />
+    <entry file="file://$PROJECT_DIR$/gluecksrad/login/urls.py" />
+    <entry file="file://$PROJECT_DIR$/gluecksrad/login/templates/user/index.html" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/django/urls/resolvers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -327,20 +359,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/login/templates/user/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/login/templates/user/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gluecksrad/login/templates/user/base.html" />
+    <entry file="file://$PROJECT_DIR$/gluecksrad/login/templates/user/login.html" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/django/core/checks/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -348,46 +368,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/gluecksrad/urls.py">
+    <entry file="file://$PROJECT_DIR$/gluecksrad/gluecksrad/urls.py" />
+    <entry file="file://$PROJECT_DIR$/gluecksrad/manage.py" />
+    <entry file="file://$PROJECT_DIR$/gluecksrad/login/apps.py" />
+    <entry file="file://$PROJECT_DIR$/gluecksrad/gluecksrad/settings.py" />
+    <entry file="file://$PROJECT_DIR$/gluecksrad/login/models.py" />
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gluecksrad/login/forms.py" />
+    <entry file="file://$PROJECT_DIR$/gluecksrad/login/views.py" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms2.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" selection-start-line="19" selection-end-line="20" />
+        <state relative-caret-position="149">
+          <caret line="591" column="22" selection-start-line="591" selection-start-column="22" selection-end-line="591" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/manage.py">
+    <entry file="file://$PROJECT_DIR$/wheelofluck/db.sqlite3">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state>
+          <caret column="125" selection-start-column="125" selection-end-column="125" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/login/apps.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/site-packages/django/db/models/fields/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        <state relative-caret-position="149">
+          <caret line="964" selection-start-line="964" selection-end-line="964" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/gluecksrad/settings.py">
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/login/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/login/apps.py">
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/.editorconfig">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wheelofluck/wheelofluck/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding>
+            <element signature="e#635#667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/new_game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="64" lean-forward="true" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wheelofluck/login/admin.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -399,102 +480,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/login/forms.py">
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-end-line="10" />
+        <state relative-caret-position="306">
+          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gluecksrad/login/views.py">
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/context_processors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="12" selection-end-column="61" />
+        <state relative-caret-position="136">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wheelofluck/login/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/wheelofluck/urls.py">
+    <entry file="file://$PROJECT_DIR$/wheelofluck/wheelofluck/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding>
-            <element signature="e#635#667#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/login/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-          <folding>
-            <element signature="e#1#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/login/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/users.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        <state relative-caret-position="188">
+          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/login/templates/user/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/login/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/wheelofluck/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wheelofluck/login/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
         </state>
       </provider>
     </entry>
