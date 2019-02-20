@@ -4,7 +4,7 @@ from django.template import loader
 from django.utils import timezone
 
 from .forms import Login, NewGame
-from .models import UserLogin, Game
+from .models import UserLogin, Game, Word
 
 # Create your views here.
 
@@ -49,4 +49,5 @@ def new_game(request):
 
 
 def game(request):
+    question = Word.word
     return render(request, 'user/game.html')

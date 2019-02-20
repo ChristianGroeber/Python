@@ -3,7 +3,7 @@
   <head>
       <title>Glücksrad</title>
        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://christiangroeber.github.io/python/M151/wheelofluck/login/static/site.css>
+    <link rel="stylesheet" href="{% static 'site.css' %}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Custom styles for this template -->
@@ -27,16 +27,17 @@
       </div>
 
     <main role="main" class="container">
-      <a href="{% url 'new_user' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+      <!--<a href="{% url 'new_user' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>-->
       <div class="row">
         <div class="col-md-8 blog-main">
             {% block content %}
             {% endblock %}
         </div><!-- /.blog-main -->
-        <div class="highscores aside">
+        <div class="highscores aside col-md-4">
           <p>High Scores</p>
           {% for game in high_score_list %}
             {{ game.player }}
+            <p></p>
           {% endfor %}
         </div>
 
