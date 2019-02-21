@@ -8,6 +8,8 @@ from .models import UserLogin, Game, Word
 
 # Create your views here.
 
+random_word = ""
+
 
 def index(request):
     return render(request, 'user/index.html')
@@ -49,5 +51,10 @@ def new_game(request):
 
 
 def game(request):
-    question = Word.word
+    question = Game.get_random_word()
+    print(question)
     return render(request, 'user/game.html')
+
+
+def guess_consonant(request):
+    """TODO"""

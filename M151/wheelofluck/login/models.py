@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import ForeignKey
+import random
 
 # Create your models here.exit
 
@@ -69,13 +70,12 @@ class PlayerWord(models.Model):
 
 
 class Game(models.Model):
-    player_id = ForeignKey(Player, related_name='name', on_delete=models.CASCADE, default=None, editable=False)
-    # player = models.CharField(max_length=30)  // deprecated
+    # player_id = ForeignKey(Player, related_name='name', on_delete=models.CASCADE, default=None, editable=False)
+    player = models.CharField(max_length=30)
     date_played = models.DateTimeField('Date Played')
     amount_played = models.IntegerField(default=0, editable=False)
 
     b = Player.objects.get(id=2)
-    print(b.player_name)
 
     def __str__(self):
         return self.player
@@ -85,3 +85,11 @@ class Game(models.Model):
 
     def set_player(self):
         self.player = Player.objects.get(pk=self.player_id).player_name
+
+    # gets all the words then returns the value "word" of a random one.
+    @staticmethod
+    def get_random_word():
+        words = Word.objects.get(all)
+        sel_word = random.choice(words).word
+        print(sel_word)
+        return sel_word
