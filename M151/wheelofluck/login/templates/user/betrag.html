@@ -1,0 +1,7 @@
+{% extends 'user/base.html' %}
+{% block content %}
+    <form class="spin-wheel" method="POST">
+        {% csrf_token %}
+        <button type="submit">Rad drehen</button>
+    </form>
+{% endblock %}

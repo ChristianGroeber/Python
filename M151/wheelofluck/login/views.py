@@ -1,4 +1,6 @@
-from django.http import HttpResponse
+import random
+
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.utils import timezone
@@ -10,6 +12,7 @@ from .models import UserLogin, Game, Word
 
 
 def index(request):
+    print(request)
     return render(request, 'user/index.html')
 
 
@@ -36,18 +39,27 @@ def users(request):
 
 
 def new_game(request):
+    print(request)
     if request.method == "POST":
         form = NewGame(request.POST)
         if form.is_valid():
             gm = form.save(commit=False)
             gm.date_played = timezone.now()
             gm.save()
-            return redirect('game')
+            return redirect('betrag')
     else:
         form = NewGame
         return render(request, 'user/new_game.html', {'form': form})
 
 
 def game(request):
-    question = Word.word
-    return render(request, 'user/game.html')
+    question = Game.get_random_word()
+    # amount_played = Game.amount_played
+    return render(request, 'user/betrag.html')
+
+
+def spin_wheel(request):
+    vals = ['10', '25', '50', '100', '500', 'x2', 'x4', 'Aussetzen', 'Bankrott']
+    spinned = random.choice(vals)
+    print(spinned)
+    return render(request, 'user/konsonant.html')
