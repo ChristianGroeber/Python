@@ -14,3 +14,10 @@ class NewGame(forms.ModelForm):
     class Meta:
         model = Game
         fields = ('player',)
+
+
+class Konsonant(forms.ModelForm):
+
+    class Meta:
+        model = Game
+        fields = ('konsonant',)

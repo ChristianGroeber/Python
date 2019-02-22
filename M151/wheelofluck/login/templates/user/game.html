@@ -1,8 +1,13 @@
 {% extends 'user/base.html' %}
 {% block content %}
-    <form class="amount" method="POST">
+<form class="your_login" method="POST">
         {% csrf_token %}
-        {{form.as_p }}
-        <button type="submit">Save</button>
-    </form>
+        <button class="spin">Dreh das Rad</button>
+</form>
+<p class="etwas">{{ spinned }}</p>
+<form class="konsonant" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Absenden</button>
+</form>
 {% endblock %}

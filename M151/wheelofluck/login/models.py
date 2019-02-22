@@ -70,12 +70,10 @@ class PlayerWord(models.Model):
 
 
 class Game(models.Model):
-    # player_id = ForeignKey(Player, related_name='name', on_delete=models.CASCADE, default=None, editable=False)
     player = models.CharField(max_length=30)
     date_played = models.DateTimeField('Date Played')
     amount_played = models.IntegerField(default=0, editable=False)
-
-    b = Player.objects.get(id=2)
+    konsonant = models.CharField(max_length=1)
 
     def __str__(self):
         return self.player
@@ -93,3 +91,4 @@ class Game(models.Model):
         sel_word = random.choice(words).word
         print(sel_word)
         return sel_word
+

@@ -1,9 +1,12 @@
+import random
+
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.utils import timezone
+from django_ajax.decorators import ajax
 
-from .forms import Login, NewGame
+from .forms import Login, NewGame, Konsonant
 from .models import UserLogin, Game, Word
 
 # Create your views here.
@@ -51,10 +54,28 @@ def new_game(request):
 
 
 def game(request):
-    question = Game.get_random_word()
-    print(question)
-    return render(request, 'user/game.html')
+    if request.method == 'POST':
+        form = Konsonant(request.POST)
+        if form.is_valid():
+            print('form is valid')
+            print(form.cleaned_data['konsonant'])
+            guess_consonant(form.cleaned_data['konsonant'])
+            return render(request, 'user/game.html')
+        else:
+            vals = ['10', '25', '50', '100', '500', 'x2', 'x4', 'Aussetzen', 'Bankrott']
+            spinned = random.choice(vals)
+            return render(request, 'user/game.html', {'form': form, 'spinned': spinned})
+    else:
+        return render(request, 'user/game.html')
 
 
 def guess_consonant(request):
     """TODO"""
+
+
+@ajax
+def spin_wheel(request):
+    vals = ['10', '25', '50', '100', '500', 'x2', 'x4', 'Aussetzen', 'Bankrott']
+    spinned = random.choice(vals)
+    print(spinned)
+    return {'spinned': spinned}
