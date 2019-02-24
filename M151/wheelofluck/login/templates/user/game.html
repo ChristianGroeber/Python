@@ -5,9 +5,11 @@
         <button class="spin">Dreh das Rad</button>
 </form>
 <p class="etwas">{{ spinned }}</p>
+{{ output }}
 <form class="konsonant" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button>Absenden</button>
 </form>
+{{ result }}
 {% endblock %}

@@ -43,6 +43,8 @@ class Word(models.Model):
         return self.word
 
     def guess_consonant(self, string):
+        if not self.consonants:
+            self. fill_consonants(self)
         if any(string in s for s in self.consonants):
             self.guessed[len(self.guessed)] = string
             return True
@@ -74,6 +76,7 @@ class Game(models.Model):
     date_played = models.DateTimeField('Date Played')
     amount_played = models.IntegerField(default=0, editable=False)
     konsonant = models.CharField(max_length=1)
+    wort = ForeignKey(Word, related_name='wort', on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.player
@@ -87,8 +90,9 @@ class Game(models.Model):
     # gets all the words then returns the value "word" of a random one.
     @staticmethod
     def get_random_word():
-        words = Word.objects.get(all)
-        sel_word = random.choice(words).word
-        print(sel_word)
+        # words = Word.objects.get(all)
+        # print(words)
+        # sel_word = random.choice(words).word
+        sel_word = "reddit is fun"
         return sel_word
 

@@ -4,10 +4,9 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.utils import timezone
-from django_ajax.decorators import ajax
 
 from .forms import Login, NewGame, Konsonant
-from .models import UserLogin, Game, Word
+from .models import UserLogin, Game, Word, PlayerWord
 
 # Create your views here.
 
@@ -47,6 +46,7 @@ def new_game(request):
             gm = form.save(commit=False)
             gm.date_played = timezone.now()
             gm.save()
+            Game.get_random_word()
             return redirect('game')
     else:
         form = NewGame
@@ -54,26 +54,65 @@ def new_game(request):
 
 
 def game(request):
+    word = Game.get_random_word()
+    arr = []
+    output = ""
+    if word.__contains__(' '):
+        arr = word.split()
+    result = ""
+    spinned = 0
+    for x in arr:
+        for i in range(0, len(x)):
+            output += "_ "
+        output += "-"
     if request.method == 'POST':
         form = Konsonant(request.POST)
         if form.is_valid():
             print('form is valid')
-            print(form.cleaned_data['konsonant'])
-            guess_consonant(form.cleaned_data['konsonant'])
-            return render(request, 'user/game.html')
+            if not is_consonant(form.cleaned_data['konsonant']):
+                result = "This isn't a consonant"
+            elif guess_consonant(form.cleaned_data['konsonant'], word):
+                result += str(word.count(form.cleaned_data['konsonant']))
+                PlayerWord.found_consonants.append(form.cleaned_data['konsonant'])
+                for i in range(1, word.count(form.cleaned_data['konsonant']) + 1):
+                    print('a: ' + str(get_index_of_substring(form.cleaned_data['konsonant'], word, i)))
+            else:
+                result += "The consonant " + form.cleaned_data['konsonant'] + " wasn't found in the word."
+            result += str(PlayerWord.found_consonants)
+            return render(request, 'user/game.html', {'output': output, 'result': result})
         else:
             vals = ['10', '25', '50', '100', '500', 'x2', 'x4', 'Aussetzen', 'Bankrott']
             spinned = random.choice(vals)
-            return render(request, 'user/game.html', {'form': form, 'spinned': spinned})
+            return render(request, 'user/game.html', {'form': form, 'spinned': spinned,
+                                                      'output': output, 'result': result})
     else:
-        return render(request, 'user/game.html')
+        return render(request, 'user/game.html', {'output': output, 'result': result})
 
 
-def guess_consonant(request):
-    """TODO"""
+def guess_consonant(str, word):
+    consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x',
+                      'y', 'z']
+    return word.__contains__(str)
 
 
-@ajax
+def get_index_of_substring(sub, word, occurance):
+    arr = list(word)
+    x = 0
+    found = 0
+    for i in arr:
+        x = x + 1
+        if i == sub:
+            found = found + 1
+            if found == occurance:
+                return x
+
+
+def is_consonant(str):
+    consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x',
+                  'y', 'z']
+    return any(str in s for s in consonants)
+
+
 def spin_wheel(request):
     vals = ['10', '25', '50', '100', '500', 'x2', 'x4', 'Aussetzen', 'Bankrott']
     spinned = random.choice(vals)
