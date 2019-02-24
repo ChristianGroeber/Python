@@ -59,42 +59,40 @@ def new_game(request):
 
 def game(request):
     global id_of_player
-    word = Game.objects.get(id=id_of_player).wort
-    a = PlayerWord(word=word)
-    a.save()
-    print(a.word)
-    arr = []
-    output = ""
-    if word.__contains__(' '):
-        arr = word.split()
+    game_object = Game.objects.get(id=id_of_player)
+    word = game_object.wort
+    output = game_object.output
     result = ""
-    spinned = 0
-    for x in arr:
-        for i in range(0, len(x)):
-            output += "_ "
-        output += "-"
+    dev_info = "word: " + word + "\nplayer id: " + str(game_object.id)
     if request.method == 'POST':
         form = Konsonant(request.POST)
         if form.is_valid():
             print('form is valid')
-            if not is_consonant(form.cleaned_data['konsonant']):
-                result = "This isn't a consonant"
-            elif guess_consonant(form.cleaned_data['konsonant'], word):
-                result += str(word.count(form.cleaned_data['konsonant']))
-                PlayerWord.found_consonants.append(form.cleaned_data['konsonant'])
-                for i in range(1, word.count(form.cleaned_data['konsonant']) + 1):
-                    print('a: ' + str(get_index_of_substring(form.cleaned_data['konsonant'], word, i)))
+            if not any(form.cleaned_data['konsonant'] in s for s in game_object.found_consonants):
+                if not is_consonant(form.cleaned_data['konsonant']):
+                    result = "This isn't a consonant"
+                elif guess_consonant(form.cleaned_data['konsonant'], word):
+                    result += str(word.count(form.cleaned_data['konsonant']))
+                    Game.found_consonants.append(form.cleaned_data['konsonant'])
+                    output = Game.generate_output(Game.objects.get(id=id_of_player), form.cleaned_data['konsonant'])
+                    for i in range(1, word.count(form.cleaned_data['konsonant']) + 1):
+                        print('a: ' + str(get_index_of_substring(form.cleaned_data['konsonant'], word, i)))
+                else:
+                    result += "The consonant " + form.cleaned_data['konsonant'] + " wasn't found in the word."
+                result += str(PlayerWord.found_consonants)
             else:
-                result += "The consonant " + form.cleaned_data['konsonant'] + " wasn't found in the word."
-            result += str(PlayerWord.found_consonants)
-            return render(request, 'user/game.html', {'output': output, 'result': result})
+                result += "Diesen Konsonanten haben Sie bereits erraten."
+            return render(request, 'user/game.html', {'output': output, 'result': result,
+                                                      'dev_info': dev_info})
         else:
             vals = ['10', '25', '50', '100', '500', 'x2', 'x4', 'Aussetzen', 'Bankrott']
             spinned = random.choice(vals)
             return render(request, 'user/game.html', {'form': form, 'spinned': spinned,
-                                                      'output': output, 'result': result})
+                                                      'output': output, 'result': result,
+                                                      'dev_info': dev_info})
     else:
-        return render(request, 'user/game.html', {'output': output, 'result': result})
+        return render(request, 'user/game.html', {'output': output, 'result': result,
+                                                      'dev_info': dev_info})
 
 
 def guess_consonant(str, word):

@@ -77,8 +77,10 @@ class Game(models.Model):
     date_played = models.DateTimeField('Date Played')
     amount_played = models.IntegerField(default=0, editable=False)
     konsonant = models.CharField(max_length=1)
-    # wort = ForeignKey(Word, related_name='Word', on_delete=models.CASCADE, default=1)
     wort = models.CharField(max_length=100)
+    output = models.CharField(max_length=200, default="")
+    found_consonants = []
+    built_word = ""
 
     def __str__(self):
         return self.player
@@ -93,4 +95,33 @@ class Game(models.Model):
     def create(cls, player):
         words = Word.objects.all()
         sel_word = random.choice(words).word
-        return cls(player=player, date_played=timezone.now(), wort=sel_word)
+        arr = sel_word.split()
+        output = ""
+        for x in arr:
+            for i in range(0, len(x)):
+                output += "_ "
+            output += "- "
+        return cls(player=player, date_played=timezone.now(), wort=sel_word, output=output)
+
+    def generate_output(self, consonant_to_putin):
+        if not self.built_word:
+            self.built_word = self.output
+        print('amount of occurances: ' + str(self.wort.count(consonant_to_putin)))
+        found = 1
+        temp = self.built_word
+        self.built_word = ""
+        arr = list(str(self.wort))
+        print('arr: ' + str(arr))
+        x = 0
+        for y2 in arr:
+            if any(y2 in s for s in self.found_consonants):
+                self.built_word += y2
+            elif y2.isspace():
+                self.built_word += "-\n"
+            elif not temp.split()[x] == "_\n":
+                self.built_word += temp.split()[x]
+            else:
+                self.built_word += "_ "
+            x = x + 1
+        print('output: ' + self.built_word)
+        return self.built_word
