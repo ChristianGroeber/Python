@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import ForeignKey
+from django.utils import timezone
 import random
 
 # Create your models here.exit
@@ -59,8 +60,8 @@ class Player(models.Model):
 
 # The word a Player has to guess in a game
 class PlayerWord(models.Model):
-    word = ForeignKey(Word, related_name='words', on_delete=models.CASCADE)
-    assigned_to_player = ForeignKey(Player, on_delete=models.CASCADE)
+    word = models.CharField(max_length=100)
+    # assigned_to_player = ForeignKey(Player, on_delete=models.CASCADE)
     found_consonants = []
     # consonants = word.words.all()
 
@@ -76,7 +77,8 @@ class Game(models.Model):
     date_played = models.DateTimeField('Date Played')
     amount_played = models.IntegerField(default=0, editable=False)
     konsonant = models.CharField(max_length=1)
-    wort = ForeignKey(Word, related_name='wort', on_delete=models.CASCADE, default=1)
+    # wort = ForeignKey(Word, related_name='Word', on_delete=models.CASCADE, default=1)
+    wort = models.CharField(max_length=100)
 
     def __str__(self):
         return self.player
@@ -87,12 +89,8 @@ class Game(models.Model):
     def set_player(self):
         self.player = Player.objects.get(pk=self.player_id).player_name
 
-    # gets all the words then returns the value "word" of a random one.
-    @staticmethod
-    def get_random_word():
-        # words = Word.objects.get(all)
-        # print(words)
-        # sel_word = random.choice(words).word
-        sel_word = "reddit is fun"
-        return sel_word
-
+    @classmethod
+    def create(cls, player):
+        words = Word.objects.all()
+        sel_word = random.choice(words).word
+        return cls(player=player, date_played=timezone.now(), wort=sel_word)

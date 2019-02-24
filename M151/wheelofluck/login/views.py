@@ -7,6 +7,7 @@ from django.utils import timezone
 
 from .forms import Login, NewGame, Konsonant
 from .models import UserLogin, Game, Word, PlayerWord
+from .context_processors import IdOfPlayer
 
 # Create your views here.
 
@@ -15,7 +16,6 @@ random_word = ""
 
 def index(request):
     return render(request, 'user/index.html')
-
 
 def new_user(request):
     if request.method == "POST":
@@ -39,14 +39,18 @@ def users(request):
     return HttpResponse(template.render(context, request))
 
 
+global id_of_player
+
+
 def new_game(request):
     if request.method == "POST":
         form = NewGame(request.POST)
         if form.is_valid():
-            gm = form.save(commit=False)
-            gm.date_played = timezone.now()
+            global id_of_player
+            gm = Game.create(form.cleaned_data['player'])
             gm.save()
-            Game.get_random_word()
+            id_of_player = gm.id
+            print('id: ' + str(id_of_player))
             return redirect('game')
     else:
         form = NewGame
@@ -54,7 +58,11 @@ def new_game(request):
 
 
 def game(request):
-    word = Game.get_random_word()
+    global id_of_player
+    word = Game.objects.get(id=id_of_player).wort
+    a = PlayerWord(word=word)
+    a.save()
+    print(a.word)
     arr = []
     output = ""
     if word.__contains__(' '):
