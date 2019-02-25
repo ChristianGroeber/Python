@@ -73,14 +73,19 @@ class PlayerWord(models.Model):
 
 
 class Game(models.Model):
+    @property
+    def amount_played(self):
+        return self._amount_played
+
     player = models.CharField(max_length=30)
     date_played = models.DateTimeField('Date Played')
-    amount_played = models.IntegerField(default=0, editable=False)
+    amount_played = models.IntegerField(default=0)
     konsonant = models.CharField(max_length=1)
     wort = models.CharField(max_length=100)
     output = models.CharField(max_length=200, default="")
     found_consonants = []
     built_word = ""
+    test = models.CharField(max_length=50, default=0)
 
     def __str__(self):
         return self.player
@@ -125,3 +130,6 @@ class Game(models.Model):
             x = x + 1
         print('output: ' + self.built_word)
         return self.built_word
+
+    def get_amount_played(self):
+        return self._amount_played + 0

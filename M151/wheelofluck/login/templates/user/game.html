@@ -14,5 +14,9 @@
 {{ result }}
 <hr></hr>
 <h4>Developer Infos</h4>
-<p>{{ dev_info }}</p>
+<ul>
+        {% for info in dev_info %}
+                <li>{{ info }}</li>
+        {%endfor %}
+</ul>
 {% endblock %}

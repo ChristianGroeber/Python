@@ -17,6 +17,7 @@ random_word = ""
 def index(request):
     return render(request, 'user/index.html')
 
+
 def new_user(request):
     if request.method == "POST":
         form = Login(request.POST)
@@ -40,6 +41,9 @@ def users(request):
 
 
 global id_of_player
+global times_guessed
+times_guessed = 0
+global playing
 
 
 def new_game(request):
@@ -59,11 +63,15 @@ def new_game(request):
 
 def game(request):
     global id_of_player
+    global times_guessed
+    global playing
     game_object = Game.objects.get(id=id_of_player)
     word = game_object.wort
     output = game_object.output
     result = ""
-    dev_info = "word: " + word + "\nplayer id: " + str(game_object.id)
+    dev_info = ["word: " + word, "player id: " + str(game_object.id),
+                'Times guessed: ' + str(times_guessed),
+                'Guthaben: ' + str(game_object.amount_played)]
     if request.method == 'POST':
         form = Konsonant(request.POST)
         if form.is_valid():
@@ -75,29 +83,36 @@ def game(request):
                     result += str(word.count(form.cleaned_data['konsonant']))
                     Game.found_consonants.append(form.cleaned_data['konsonant'])
                     output = Game.generate_output(Game.objects.get(id=id_of_player), form.cleaned_data['konsonant'])
-                    for i in range(1, word.count(form.cleaned_data['konsonant']) + 1):
-                        print('a: ' + str(get_index_of_substring(form.cleaned_data['konsonant'], word, i)))
+                    played = word.count(form.cleaned_data['konsonant']) * int(playing) + \
+                             Game.objects.get(pk=id_of_player).amount_played
+                    Game.objects.filter(pk=id_of_player).update(amount_played=played)
                 else:
-                    result += "The consonant " + form.cleaned_data['konsonant'] + " wasn't found in the word."
-                result += str(PlayerWord.found_consonants)
+                    times_guessed = times_guessed + 1
+                    if times_guessed >= 3:
+                        return redirect("/")
+                    result += "The consonant " + form.cleaned_data['konsonant'] + " wasn't found in the word." \
+                                                                                  "You have " \
+                              + str(3 - times_guessed) + " guesses left."
+                result += str(Game.found_consonants)
             else:
                 result += "Diesen Konsonanten haben Sie bereits erraten."
             return render(request, 'user/game.html', {'output': output, 'result': result,
                                                       'dev_info': dev_info})
         else:
-            vals = ['10', '25', '50', '100', '500', 'x2', 'x4', 'Aussetzen', 'Bankrott']
+            vals = ['10', '25', '50', '100', '500', 'x2', 'x4', 'Bankrott']
             spinned = random.choice(vals)
+            playing = spinned
             return render(request, 'user/game.html', {'form': form, 'spinned': spinned,
                                                       'output': output, 'result': result,
                                                       'dev_info': dev_info})
     else:
         return render(request, 'user/game.html', {'output': output, 'result': result,
-                                                      'dev_info': dev_info})
+                                                  'dev_info': dev_info})
 
 
 def guess_consonant(str, word):
     consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x',
-                      'y', 'z']
+                  'y', 'z']
     return word.__contains__(str)
 
 
@@ -117,10 +132,3 @@ def is_consonant(str):
     consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x',
                   'y', 'z']
     return any(str in s for s in consonants)
-
-
-def spin_wheel(request):
-    vals = ['10', '25', '50', '100', '500', 'x2', 'x4', 'Aussetzen', 'Bankrott']
-    spinned = random.choice(vals)
-    print(spinned)
-    return {'spinned': spinned}
