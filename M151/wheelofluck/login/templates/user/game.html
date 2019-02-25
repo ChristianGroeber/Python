@@ -1,9 +1,17 @@
 {% extends 'user/base.html' %}
 {% block content %}
-<form class="your_login" method="POST">
-        {% csrf_token %}
-        <button class="spin">Dreh das Rad</button>
-</form>
+{% if can_play %}
+<div class="row">
+        <div class="col-sm-6">
+                <form class="your_login" method="POST">
+                        {% csrf_token %}
+                        <button class="spin">Dreh das Rad</button>
+                </form>
+        </div>
+        <div class="col-sm-6">
+                <p>Guthaben: {{ credit }}</p>
+        </div>
+</div>
 <p class="etwas">{{ spinned }}</p>
 {{ output }}
 <form class="konsonant" method="POST">
@@ -12,6 +20,9 @@
         <button>Absenden</button>
 </form>
 {{ result }}
+{% else %}
+<a href="/">Sie haben verloren, bitte gehen Sie zurück.</a>
+{% endif %}
 <hr></hr>
 <h4>Developer Infos</h4>
 <ul>

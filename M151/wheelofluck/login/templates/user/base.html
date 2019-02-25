@@ -38,7 +38,7 @@
         <div class="highscores aside col-md-4">
           <p>High Scores</p>
           {% for game in high_score_list %}
-            {{ game.player }}
+            {{ game.player }} - {{game.amount_played }}
             <p></p>
           {% endfor %}
         </div>
