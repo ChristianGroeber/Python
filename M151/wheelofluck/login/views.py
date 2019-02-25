@@ -6,7 +6,7 @@ from django.template import loader
 from django.utils import timezone
 
 from .forms import Login, NewGame, Konsonant
-from .models import UserLogin, Game, Word, PlayerWord
+from .models import UserLogin, Game, Word, PlayerWord, Category
 from .context_processors import IdOfPlayer
 
 # Create your views here.
@@ -66,13 +66,14 @@ def game(request):
     global times_guessed
     global playing
     game_object = Game.objects.get(id=id_of_player)
-    word = game_object.wort
+    word = game_object.wort.word
     output = game_object.output
     result = ""
     credit = Game.objects.get(id=id_of_player).amount_played
     dev_info = ["word: " + word, "player id: " + str(game_object.id),
                 'Times guessed: ' + str(times_guessed),
-                'Guthaben: ' + str(game_object.amount_played)]
+                'Guthaben: ' + str(game_object.amount_played), "Result: " + result]
+    category = Word.objects.get(word=word).category
     can_play = True
     if request.method == 'POST':
         form = Konsonant(request.POST)
@@ -98,9 +99,8 @@ def game(request):
                 result += str(Game.found_consonants)
             else:
                 result += "Diesen Konsonanten haben Sie bereits erraten."
-            return render(request, 'user/game.html', {'output': output, 'result': result,
-                                                      'dev_info': dev_info, 'credit': credit,
-                                                      'can_play': can_play})
+            return render(request, 'user/game.html', {'output': output, 'dev_info': dev_info, 'credit': credit,
+                                                      'can_play': can_play, 'category': category})
         else:
             vals = ['10', '25', '50', '100', '500', 'Risiko', 'Bankrott']
             spinned = random.choice(vals)
@@ -109,19 +109,19 @@ def game(request):
                 tmp = "TODO: implement Risiko function"
                 print(tmp)
                 dev_info.append(tmp)
+                answers = list(Game.objects.get(pk=id_of_player).wort.answer.all())
+                print(answers[0])
             else:
                 try:
                     a = int(playing)
                 except ValueError:
                     can_play = False
             return render(request, 'user/game.html', {'form': form, 'spinned': spinned,
-                                                      'output': output, 'result': result,
-                                                      'dev_info': dev_info, 'credit': credit,
+                                                      'output': output, 'dev_info': dev_info, 'credit': credit,
                                                       'can_play': can_play})
     else:
-        return render(request, 'user/game.html', {'output': output, 'result': result,
-                                                  'dev_info': dev_info, 'credit': credit,
-                                                      'can_play': can_play})
+        return render(request, 'user/game.html', {'output': output, 'dev_info': dev_info, 'credit': credit,
+                                                  'can_play': can_play})
 
 
 def guess_consonant(str, word):

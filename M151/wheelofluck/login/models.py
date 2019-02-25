@@ -25,11 +25,24 @@ class Category(models.Model):
         self.Objects.all()
 
 
+class Answer(models.Model):
+    text = models.CharField(max_length=200, default="")
+
+    def __str__(self):
+        return self.text
+
+
+def get_random_word():
+    words = Word.objects.all()
+    return random.choice(words)
+
+
 class Word(models.Model):
     word = models.CharField(max_length=50)
     category = ForeignKey(Category, on_delete=models.CASCADE)
     consonants = []
     guessed = []
+    answer = models.ManyToManyField(Answer)
 
     def fill_consonants(self):
         consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x',
@@ -81,7 +94,7 @@ class Game(models.Model):
     date_played = models.DateTimeField('Date Played')
     amount_played = models.IntegerField(default=0)
     konsonant = models.CharField(max_length=1)
-    wort = models.CharField(max_length=100)
+    wort = ForeignKey(Word, default=1, on_delete=models.CASCADE)
     output = models.CharField(max_length=200, default="")
     found_consonants = []
     built_word = ""
@@ -98,9 +111,8 @@ class Game(models.Model):
 
     @classmethod
     def create(cls, player):
-        words = Word.objects.all()
-        sel_word = random.choice(words).word
-        arr = sel_word.split()
+        sel_word = get_random_word()
+        arr = sel_word.word.split()
         output = ""
         for x in arr:
             for i in range(0, len(x)):
@@ -111,7 +123,7 @@ class Game(models.Model):
     def generate_output(self, consonant_to_putin):
         if not self.built_word:
             self.built_word = self.output
-        print('amount of occurances: ' + str(self.wort.count(consonant_to_putin)))
+        print('amount of occurances: ' + str(self.wort.word.count(consonant_to_putin)))
         found = 1
         temp = self.built_word
         self.built_word = ""
