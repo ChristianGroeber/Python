@@ -45,6 +45,8 @@ times_guessed = 0
 global playing
 global stats
 stats = {'kategorie': "", 'guthaben': "", 'fehler': ""}
+global stage
+stage = 1
 
 
 def new_game(request):
@@ -67,6 +69,7 @@ def game(request):
     global times_guessed
     global playing
     global stats
+    global stage
     stats['fehler'] = times_guessed
     IdOfPlayer.set_id_of_player(id_of_player)
     game_object = Game.objects.get(id=id_of_player)
@@ -80,6 +83,8 @@ def game(request):
                 'Guthaben: ' + str(game_object.amount_played), "Result: " + result]
     stats['kategorie'] = Word.objects.get(word=word).category
     can_play = True
+    if stage == 2:
+        stage = 1
     if request.method == 'POST':
         form = Konsonant(request.POST)
         if form.is_valid() and not playing == 'Risiko':
@@ -105,10 +110,12 @@ def game(request):
                     result += "The consonant " + konsonant + " wasn't found in the word. You have " \
                               + str(3 - times_guessed) + " guesses left."
                 result += str(Game.found_consonants)
+                stage = 1
             else:
+                stage = 2
                 result += "Diesen Konsonanten haben Sie bereits erraten."
             return render(request, 'user/game.html', {'output': output, 'dev_info': dev_info, 'credit': credit,
-                                                      'can_play': can_play, 'stats': stats})
+                                                      'can_play': can_play, 'stats': stats, 'stage': stage})
         else:
             vals = ['10', '25', '50', '100', '500', 'Risiko']
             spinned = random.choice(vals)
@@ -120,12 +127,14 @@ def game(request):
                     int(playing)
                 except ValueError:
                     can_play = False
+            stage = 2
             return render(request, 'user/game.html', {'form': form, 'spinned': spinned,
                                                       'output': output, 'dev_info': dev_info, 'credit': credit,
-                                                      'can_play': can_play, 'stats': stats})
+                                                      'can_play': can_play, 'stats': stats, 'stage': stage})
     else:
+        stage = 1
         return render(request, 'user/game.html', {'output': output, 'dev_info': dev_info, 'credit': credit,
-                                                  'can_play': can_play, 'stats': stats})
+                                                  'can_play': can_play, 'stats': stats, 'stage': stage})
 
 
 def redirect_game(request, amount):
