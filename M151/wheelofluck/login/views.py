@@ -44,7 +44,7 @@ global times_guessed
 times_guessed = 0
 global playing
 global stats
-stats = {'kategorie': "", 'guthaben': ""}
+stats = {'kategorie': "", 'guthaben': "", 'fehler': ""}
 
 
 def new_game(request):
@@ -67,6 +67,7 @@ def game(request):
     global times_guessed
     global playing
     global stats
+    stats['fehler'] = times_guessed
     IdOfPlayer.set_id_of_player(id_of_player)
     game_object = Game.objects.get(id=id_of_player)
     word = game_object.wort.word
@@ -95,6 +96,8 @@ def game(request):
                     Game.objects.filter(pk=id_of_player).update(amount_played=played)
                     stats['guthaben'] = played
                     credit = played
+                    spielrunden = Game.objects.get(pk=id_of_player).spielrunden
+                    Game.objects.filter(pk=id_of_player).update(spielrunden=int(spielrunden) + 1)
                 else:
                     times_guessed = times_guessed + 1
                     if times_guessed >= 3:

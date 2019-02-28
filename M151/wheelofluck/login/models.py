@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models import ForeignKey
 from django.utils import timezone
-from datetime import datetime
 import random
 
 # Create your models here.exit
@@ -101,7 +100,7 @@ class Game(models.Model):
     found_consonants = []
     built_word = ""
     test = models.CharField(max_length=50, default=0)
-    spielrunden = models.CharField(max_length=20, default=0)
+    spielrunden = models.IntegerField(max_length=20, default=0)
 
     def __str__(self):
         return self.player + " - " + str(self.amount_played) + " - " + str(self.date_played.strftime("%d.%m.%Y")) + \
