@@ -1,0 +1,17 @@
+{% extends 'user/base.html' %}
+{% block content %}
+{% if possible %}
+Frage: <h4><b>{{frage}}</b></h4><p></p>
+{% for question in antwort %}
+<a class="{{question}}" href="/game/risiko/{{question}}/">{{question}}</a>
+<p></p>
+{% endfor %}
+{% else %}
+Bitte setzten Sie einen Betrag:<p></p>
+<form class="betrag" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Absenden</button>
+</form>
+{% endif %}
+{% endblock %}

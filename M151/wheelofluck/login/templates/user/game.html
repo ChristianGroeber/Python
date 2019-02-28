@@ -1,12 +1,6 @@
 {% extends 'user/base.html' %}
 {% block content %}
 {% if can_play %}
-<h4>Ihre Kategorie: {{ category }}</h4>
-<script>
-        $(document).ready(function(){
-                
-        });
-</script>
 <div class="row">
         <div class="col-sm-6">
                 <form class="your_login" method="POST">
@@ -15,7 +9,7 @@
                 </form>
         </div>
         <div class="col-sm-6">
-                <p>Guthaben: {{ credit }}</p>
+                <p>Guthaben: {{ stats.guthaben }}</p>
         </div>
 </div>
 <p class="etwas">{{ spinned }}</p>
@@ -25,6 +19,7 @@
         {{ form.as_p }}
         <button>Absenden</button>
 </form>
+<a class="solve" href="/game/solve/">Ich möchte das Rätsel lösen</a>
 {{ result }}
 {% else %}
 <a href="/">Sie haben verloren, bitte gehen Sie zurück.</a>

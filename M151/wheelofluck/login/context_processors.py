@@ -7,6 +7,12 @@ def high_score_list(request):
     }
 
 
+def stats(request):
+    return {
+        # 'kategorie': Game.objects.get(pk=IdOfPlayer.current_player_id(request)['id']).wort.category
+    }
+
+
 def spinned(request):
     return {}
 
