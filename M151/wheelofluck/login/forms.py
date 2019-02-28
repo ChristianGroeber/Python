@@ -3,10 +3,11 @@ from .models import UserLogin, Game
 
 
 class Login(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = UserLogin
-        fields = ('username', 'password')
+        fields = ('username',)
 
 
 class NewGame(forms.ModelForm):

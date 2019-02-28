@@ -21,9 +21,9 @@ def new_user(request):
     if request.method == "POST":
         form = Login(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.loggedInAt = timezone.now()
-            post.save()
+            user = form.save(commit=False)
+            user.loggedInAt = timezone.now()
+            user.save()
             return redirect('users')
     else:
         form = Login()
@@ -117,7 +117,7 @@ def game(request):
                 return redirect("risiko/")
             else:
                 try:
-                    a = int(playing)
+                    int(playing)
                 except ValueError:
                     can_play = False
             return render(request, 'user/game.html', {'form': form, 'spinned': spinned,
