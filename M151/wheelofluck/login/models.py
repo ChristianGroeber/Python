@@ -38,12 +38,20 @@ def get_random_word():
     return random.choice(words)
 
 
+class Question(models.Model):
+    question = models.CharField(max_length=500)
+    category = ForeignKey(Category, on_delete=models.CASCADE)
+    answer = models.ManyToManyField(Answer)
+
+    def __str__(self):
+        return str(self.category) + " - " + self.question
+
+
 class Word(models.Model):
     word = models.CharField(max_length=50)
     category = ForeignKey(Category, on_delete=models.CASCADE)
     consonants = []
     guessed = []
-    answer = models.ManyToManyField(Answer)
 
     def fill_consonants(self):
         consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x',
@@ -100,7 +108,7 @@ class Game(models.Model):
     found_consonants = []
     built_word = ""
     test = models.CharField(max_length=50, default=0)
-    spielrunden = models.IntegerField(max_length=20, default=0)
+    spielrunden = models.IntegerField(default=0)
 
     def __str__(self):
         return self.player + " - " + str(self.amount_played) + " - " + str(self.date_played.strftime("%d.%m.%Y")) + \
@@ -126,7 +134,7 @@ class Game(models.Model):
     def generate_output(self, consonant_to_putin):
         if not self.built_word:
             self.built_word = self.output
-        print('amount of occurances: ' + str(self.wort.word.count(consonant_to_putin)))
+        print(consonant_to_putin + ' amount of occurances: ' + str(self.wort.word.count(consonant_to_putin)))
         found = 1
         temp = self.built_word
         self.built_word = ""
@@ -134,16 +142,16 @@ class Game(models.Model):
         print('arr: ' + str(arr))
         x = 0
         for y2 in arr:
-            if any(y2 in s for s in self.found_consonants):
+            if any(y2.lower() in s for s in self.found_consonants):
                 self.built_word += y2
             elif y2.isspace():
-                self.built_word += "-\n"
-            elif not temp.split()[x] == "_\n":
+                self.built_word += "-"
+            elif not temp.split()[x] == "_":
                 self.built_word += temp.split()[x]
             else:
                 self.built_word += "_ "
             x = x + 1
-        print('output: ' + self.built_word)
+        self.output = self.built_word
         return self.built_word
 
     def get_amount_played(self):
