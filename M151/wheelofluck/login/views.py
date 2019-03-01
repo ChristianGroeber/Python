@@ -113,7 +113,7 @@ global betrag_gesetzt
 
 
 def do_checks_for_konsonant(request, konsonant, id, word, dev_info, can_play, times_guessed, result):
-    output = Game.output
+    output = Game.objects.get(pk=id).output
     if not any(konsonant in s for s in Game.objects.get(pk=id).found_consonants):
         if not is_consonant(konsonant):
             result += "This isn't a consonant"
