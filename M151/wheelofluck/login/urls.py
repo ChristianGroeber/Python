@@ -5,7 +5,7 @@ from login import views
 urlpatterns = [
     path('game/risiko/<answer>/<id>/', views.risiko),
     path('game/risiko/<id>/', views.risiko, name='game.risiko'),
-    path('game/result/<id>', views.result, name='game.result'),
+    path('game/result/<id>', views.resultat, name='game.result'),
     path('game/solve/<id>/', views.solve, name='game.solve'),
     path('game/<id>/', views.game, name='game'),
     path('new_game/', views.new_game, name='new_game'),
