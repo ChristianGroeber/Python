@@ -39,7 +39,6 @@ def users(request):
     return HttpResponse(template.render(context, request))
 
 
-global id_of_player
 global times_guessed
 times_guessed = 0
 global playing
@@ -53,30 +52,28 @@ def new_game(request):
     if request.method == "POST":
         form = NewGame(request.POST)
         if form.is_valid():
-            global id_of_player
             gm = Game.create(form.cleaned_data['player'])
             gm.save()
-            id_of_player = gm.id
-            print('id: ' + str(id_of_player))
-            return redirect('game')
+            id = gm.id
+            print('id: ' + str(id))
+            return redirect('game', id)
     else:
         form = NewGame
         return render(request, 'user/new_game.html', {'form': form})
 
 
-def game(request):
-    global id_of_player
+def game(request, id):
     global times_guessed
     global playing
     global stats
     global stage
     stats['fehler'] = times_guessed
-    IdOfPlayer.set_id_of_player(id_of_player)
-    game_object = Game.objects.get(id=id_of_player)
+    IdOfPlayer.set_id_of_player(id)
+    game_object = Game.objects.get(id=id)
     word = game_object.wort.word
     output = game_object.output
     result = ""
-    credit = Game.objects.get(id=id_of_player).amount_played
+    credit = Game.objects.get(id=id).amount_played
     print(int(credit))
     dev_info = ["word: " + word, "player id: " + str(game_object.id),
                 'Times guessed: ' + str(times_guessed),
@@ -96,13 +93,13 @@ def game(request):
                 elif guess_consonant(konsonant, word.lower()):
                     result += str(word.count(konsonant))
                     Game.found_consonants.append(konsonant)
-                    output = Game.generate_output(Game.objects.get(id=id_of_player), konsonant)
-                    played = word.count(konsonant) * int(playing) + Game.objects.get(pk=id_of_player).amount_played
-                    Game.objects.filter(pk=id_of_player).update(amount_played=played)
+                    output = Game.generate_output(Game.objects.get(id=id), konsonant)
+                    played = word.count(konsonant) * int(playing) + Game.objects.get(pk=id).amount_played
+                    Game.objects.filter(pk=id).update(amount_played=played)
                     stats['guthaben'] = played
                     credit = played
-                    spielrunden = Game.objects.get(pk=id_of_player).spielrunden
-                    Game.objects.filter(pk=id_of_player).update(spielrunden=int(spielrunden) + 1)
+                    spielrunden = Game.objects.get(pk=id).spielrunden
+                    Game.objects.filter(pk=id).update(spielrunden=int(spielrunden) + 1)
                 else:
                     times_guessed = times_guessed + 1
                     if times_guessed >= 3:
@@ -115,13 +112,13 @@ def game(request):
                 stage = 2
                 result += "Diesen Konsonanten haben Sie bereits erraten."
             return render(request, 'user/game.html', {'output': output, 'dev_info': dev_info, 'credit': credit,
-                                                      'can_play': can_play, 'stats': stats, 'stage': stage})
+                                                      'can_play': can_play, 'stats': stats, 'stage': stage, 'id': id})
         else:
             vals = ['10', '25', '50', '100', '500', 'Risiko']
             spinned = random.choice(vals)
             playing = spinned
             if playing == 'Risiko':
-                return redirect("risiko/")
+                return redirect("game.risiko", id)
             else:
                 try:
                     int(playing)
@@ -130,75 +127,66 @@ def game(request):
             stage = 2
             return render(request, 'user/game.html', {'form': form, 'spinned': spinned,
                                                       'output': output, 'dev_info': dev_info, 'credit': credit,
-                                                      'can_play': can_play, 'stats': stats, 'stage': stage})
+                                                      'can_play': can_play, 'stats': stats, 'stage': stage, 'id': id})
     else:
         stage = 1
         return render(request, 'user/game.html', {'output': output, 'dev_info': dev_info, 'credit': credit,
-                                                  'can_play': can_play, 'stats': stats, 'stage': stage})
-
-
-def redirect_game(request, amount):
-    global id_of_player
-    print(str(Game.objects.get(pk=id_of_player).amount_played))
-    Game.objects.get(pk=id_of_player).amount_played = amount
-    print(str(Game.objects.get(pk=id_of_player).amount_played))
-    global playing
-    playing = amount
-    return redirect('game')
+                                                  'can_play': can_play, 'stats': stats, 'stage': stage, 'id': id})
 
 
 global betrag_gesetzt
 
 
-def risiko(request, answer=None):
+def risiko(request, answer=None, id=None):
     global stats
-    global id_of_player
     global betrag_gesetzt
     form = Setzen(request.POST)
     if request.method == 'POST':
         if form.is_valid():
             print('form is valid')
             try:
-                if int(form.cleaned_data['betrag']) <= Game.objects.get(pk=id_of_player).amount_played:
-                    frage = Game.objects.get(pk=id_of_player).wort
+                if int(form.cleaned_data['betrag']) <= Game.objects.get(pk=id).amount_played:
+                    frage = Game.objects.get(pk=id).wort
                     answers = list(frage.answer.all())
                     betrag_gesetzt = int(form.cleaned_data['betrag'])
                     print(str(betrag_gesetzt))
                     return render(request, 'user/risiko.html', {'frage': frage, 'antwort': answers, 'possible': True,
-                                                                'stats': stats})
+                                                                'stats': stats, 'id': id})
             except TypeError:
                 print(TypeError.with_traceback())
     elif answer:
         global won
+        print(answer)
+        print(id)
         won = Answer.objects.get(text=answer).is_correct
         if won:
-            a = Game.objects.get(pk=id_of_player).amount_played
+            a = Game.objects.get(pk=id).amount_played
             print(str(a))
-            Game.objects.filter(pk=id_of_player).update(amount_played=int(a) + int(betrag_gesetzt))
-        return redirect('game.result')
-    return render(request, 'user/risiko.html', {'possible': False, 'form': form, 'stats': stats})
+            Game.objects.filter(pk=id).update(amount_played=int(a) + int(betrag_gesetzt))
+        return redirect('game.result', id)
+    return render(request, 'user/risiko.html', {'possible': False, 'form': form, 'stats': stats, 'id': id})
 
 
 global won
 won = False
 
 
-def solve(request):
+def solve(request, id):
     global won
     global stats
     form = Solve(request.POST)
     result = ["Hey"]
     if form.is_valid():
-        won = check_if_correct_phrase(form.cleaned_data['Question'])
-        return redirect('../../game/result/')
-    return render(request, 'user/solve.html', {'form': form, 'stats': stats})
+        won = check_if_correct_phrase(form.cleaned_data['Question'], id)
+        return redirect('game.result', id)
+    return render(request, 'user/solve.html', {'form': form, 'stats': stats, 'id': id})
 
 
-def result(request):
+def result(request, id):
     global won
     result = ""
     if won:
-        result = "Gratuliere, Sie haben " + str(Game.objects.get(pk=id_of_player).amount_played) + " gewonnen"
+        result = "Gratuliere, Sie haben " + str(Game.objects.get(pk=id).amount_played) + " gewonnen"
     else:
         result = "Sie haben leider verloren."
     return render(request, "user/result.html", {'result': result})
@@ -210,16 +198,14 @@ def guess_consonant(str, word):
     return word.__contains__(str)
 
 
-def check_if_correct_phrase(phrase):
-    global id_of_player
+def check_if_correct_phrase(phrase, id):
     print(phrase)
-    print(Game.objects.get(pk=id_of_player).wort)
-    return phrase.lower() == str(Game.objects.get(pk=id_of_player).wort).lower()
+    print(Game.objects.get(pk=id).wort)
+    return phrase.lower() == str(Game.objects.get(pk=id).wort).lower()
 
 
-def check_answer(answer):
-    global id_of_player
-    return answer.__contains__([Game.objects.get(pd=id_of_player).wort.answer.all()])
+def check_answer(answer, id):
+    return answer.__contains__([Game.objects.get(pd=id).wort.answer.all()])
 
 
 def get_index_of_substring(sub, word, occurance):

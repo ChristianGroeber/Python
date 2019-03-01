@@ -3,7 +3,7 @@
 {% if possible %}
 Frage: <h4><b>{{frage}}</b></h4><p></p>
 {% for question in antwort %}
-<a class="{{question}}" href="/game/risiko/{{question}}/">{{question}}</a>
+<a class="{{question}}" href="/game/risiko/{{question}}/{{ id }}/">{{question}}</a>
 <p></p>
 {% endfor %}
 {% else %}
