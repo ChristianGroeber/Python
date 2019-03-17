@@ -148,7 +148,7 @@ def risiko(request, answer=None, id=None):
             print('form is valid')
             try:
                 if int(form.cleaned_data['betrag']) <= Game.objects.get(pk=id).amount_played:
-                    frage = random.choice(Question.objects.all())
+                    frage = random.choice(Question.objects.filter(category=Game.objects.get(pk=id).wort.category))
                     answers = list(frage.answer.all())
                     betrag_gesetzt = int(form.cleaned_data['betrag'])
                     return render(request, 'user/risiko.html', {'frage': frage, 'antwort': answers, 'possible': True,
