@@ -1,8 +1,0 @@
-{% extends 'user/base.html' %}
-{% block content %}
-<form class="solve" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button>Absenden</button>
-</form>
-{% endblock %}

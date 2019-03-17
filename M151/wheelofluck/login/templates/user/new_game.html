@@ -1,8 +1,0 @@
-{% extends 'user/base.html' %}
-{% block content %}
-<form class="new_game" method="POST">
-        {% csrf_token %}
-        {{form.as_p }}
-        <button type="submit">Save</button>
-    </form>
-{% endblock %}
